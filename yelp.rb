@@ -26,7 +26,7 @@ def save_bookmarks(mech, email, password)
       print "writing page #{page_num}\n"
       write_bookmarks(bookmarks_page, page_num)
       print 'sleeping... '
-      sleep(15)
+      sleep(30)
     end
   end
   puts 'Done'
@@ -36,8 +36,8 @@ def mech()
   Mechanize.new do |agent|
     agent.user_agent_alias = 'Mac Safari'
     agent.follow_meta_refresh = true
-    agent.open_timeout = 60
-    agent.read_timeout = 60
+    agent.open_timeout = 90
+    agent.read_timeout = 90
   end
 end
 
