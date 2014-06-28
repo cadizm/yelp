@@ -15,18 +15,21 @@ def save_bookmarks(mech, email, password)
     about_page = home_page.link_with(:text => 'About Me').click
     print 'scraping... '
     bookmarks_page = about_page.link_with(:text => 'Bookmarks').click
-    page_num = 0
-    print "writing page #{page_num}\n"
-    write_bookmarks(bookmarks_page, page_num)
-    loop do
-      break if not bookmarks_page.link_with(:text => 'Next')
-      print 'scraping... '
-      bookmarks_page = bookmarks_page.link_with(:text => 'Next').click
-      page_num += 1
+    uri_desc = "#{bookmarks_page.uri}&sort_by=time_created_desc"
+    mech.get(uri_desc) do |bookmarks_page_page|
+      page_num = 0
       print "writing page #{page_num}\n"
       write_bookmarks(bookmarks_page, page_num)
-      print 'sleeping... '
-      sleep(30)
+      loop do
+        break if not bookmarks_page.link_with(:text => 'Next')
+        print 'scraping... '
+        bookmarks_page = bookmarks_page.link_with(:text => 'Next').click
+        page_num += 1
+        print "writing page #{page_num}\n"
+        write_bookmarks(bookmarks_page, page_num)
+        print 'sleeping... '
+        sleep(30)
+      end
     end
   end
   puts 'Done'
