@@ -2,7 +2,6 @@
 
 var cheerio = require('cheerio'),
     fs = require('fs'),
-    util = require('util'),
     _ = require('underscore');
 
 

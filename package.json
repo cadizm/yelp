@@ -5,6 +5,8 @@
     "private": true,
     "dependencies": {
         "underscore": "1.5.2",
-        "cheerio": "0.17.0"
+        "cheerio": "0.17.0",
+        "async": "0.7.0",
+        "sleep": "1.1.8"
     }
 }

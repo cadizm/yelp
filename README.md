@@ -1,16 +1,17 @@
 
-Save Yelp bookmarks to disk
-===========================
+Save Yelp bookmarks to disk and parse/geocode addresses
+=======================================================
 
 For whatever reason, yelp doesn't provide users a way (or developers an api)
 for downloading their saved bookmarks.
 
-This exceedingly simple script saves the html source of all the bookmark pages
-for a given user.
+This repo contains an exceedingly simple ruby mechanize script to save the
+html source of all the bookmark pages for a given user.
 
-Users can then parse the source to retrieve their bookmarks.
+It also contains helper node scripts to parse and geocode addresses.
 
 Prerequisites
 =============
 
 [Ruby Mechanize](http://mechanize.rubyforge.org)
+[Node.js](http://nodejs.org)
