@@ -1,5 +1,3 @@
-.gitignore
-secret.js
-bookmarks.json
-data
-node_modules
+errors.txt
+remove-errors.txt
+output/rendered_items-*.json
