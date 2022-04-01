@@ -36,7 +36,7 @@ params = {
   'collection_id': collection_id,
 }
 
-def sleep_random(lower=15, upper=30, multiplier=1):
+def sleep_random(lower=20, upper=40, multiplier=1):
   sleep(random.randint(lower, upper) * multiplier)
 
 
@@ -45,7 +45,7 @@ def remove_item(item_id, retries=1):
   payload = '&'.join([f'{k}={v}' for k, v in params.items()])
 
   try:
-    return requests.post(base_url, headers=headers, data=payload)
+    return requests.post(base_url, headers=headers, data=payload, timeout=5)
 
   except Exception as e:
     print(e)

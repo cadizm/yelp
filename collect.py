@@ -29,7 +29,7 @@ def get_rendered_items(colleciton_id, offset=0, count=30):
 
     try:
       print(f'Retrieving url with params: {params}')
-      res = requests.get(base_url, params=params)
+      res = requests.get(base_url, params=params, timeout=5)
 
       filename = numbered_filename('rendered_items', i)
       with open(filename, 'w') as f:
